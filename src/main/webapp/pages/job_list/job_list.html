@@ -1,0 +1,40 @@
+<wm-partial name="partial1">
+    <wm-container name="container1">
+        <wm-layoutgrid name="layoutgrid1" columns="6">
+            <wm-gridrow name="gridrow6">
+                <wm-gridcolumn columnwidth="2" name="gridcolumn19">
+                    <wm-button caption="View Job History" type="button" margin="unset 0.5em" name="button2" on-click="Actions.goToPage_Report.invoke()"></wm-button>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn20"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn21"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn22"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn23"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn24">
+                    <wm-search name="search1" dataset="bind:Variables.App_TablesJobRunHistoryData.dataSet" searchkey="jobName" displaylabel="jobName" datafield="All Fields" matchmode="startignorecase" required="false" searchon="typing" on-submit="Widgets.JobRunHistoryTable1.refreshData()"
+                        placeholder="Search by Job Name"></wm-search>
+                </wm-gridcolumn>
+            </wm-gridrow><br><br>
+            <wm-gridrow name="gridrow7">
+                <wm-gridcolumn columnwidth="2" name="gridcolumn25"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn26"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn27"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn28"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn29"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn30"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-container>
+    <wm-table editmode="inline" name="JobRunHistoryTable1" title="" dataset="bind:Variables.Currentdate.dataSet" navigation="Basic" filtermode="multicolumn" enablecolumnselection="false" spacing="normal">
+        <wm-table-column binding="id" caption="Id" width="50px" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" searchable="false" show="true" disabled="true"></wm-table-column>
+        <wm-table-column binding="jobName" caption="Job Name" width="250px" edit-widget-type="text" type="string" generator="assigned" readonly="true" searchable="false" show="true" filterwidget="select" disabled="true"></wm-table-column>
+        <wm-table-column binding="scheduleRunTime" caption="Schedule Run Time" width="160px" edit-widget-type="datetime" type="datetime" generator="assigned" readonly="true" searchable="false" show="true" disabled="true" required="true"></wm-table-column>
+        <wm-table-column binding="scheduleDays" caption="Schedule Days" width="100px" edit-widget-type="text" type="string" generator="assigned" readonly="true" searchable="false" show="true" disabled="true" required="true"></wm-table-column>
+        <wm-table-column binding="actualRunTime" caption="Actual Run Time" width="160px" edit-widget-type="datetime" type="datetime" generator="assigned" readonly="true" searchable="false" show="true" disabled="true" required="true"></wm-table-column>
+        <wm-table-column binding="status" caption="Status" width="110px" col-ng-class="{'text-success':row.status=='PASS', 'text-danger':row.status=='FAIL', 'text-warning':row.status=='NO FILE', 'text-muted':row.status=='START ERROR', 'text-dark':row.status=='YET TO RUN', 'pass':row.status=='PASS', 'fail':row.status=='FAIL', 'nofile':row.status=='NO FILE', 'starterror':row.status=='START ERROR', 'yettorun':row.status=='YET TO RUN'}"
+            edit-widget-type="text" type="string" generator="assigned" show="true" filterwidget="select" readonly="false" disabled="true" required="true"></wm-table-column>
+        <wm-table-column binding="remarks" caption="Remarks" width="200px" edit-widget-type="text" type="string" generator="assigned" searchable="false" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="batchMonitor" caption="Batch Monitor" width="100px" edit-widget-type="text" type="string" generator="assigned" searchable="false" show="true" readonly="false"></wm-table-column>
+        <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+        <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow($event)" disabled="false" widget-type="button"></wm-table-row-action>
+    </wm-table>
+</wm-partial>

@@ -1,0 +1,24 @@
+{
+  "Currentdate" : {
+    "_id" : "wm-Currentdate-wm.ServiceVariable-1562926362875",
+    "name" : "Currentdate",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.waverider_project.app_tables.models.query.CurrentdateResponse",
+    "service" : "App_Tables",
+    "operation" : "executeCurrentdate",
+    "operationId" : "QueryExecutionController_executeCurrentdate",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

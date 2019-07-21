@@ -1,0 +1,43 @@
+<wm-page pagetitle="Report" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1"><br><br>
+            <wm-layoutgrid name="layoutgrid1" columns="6">
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn5">
+                        <wm-label padding="0.60em 0.5em unset 13.5em" name="label1" caption="From:"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn6">
+                        <wm-datetime name="datetime1" maxdate="CURRENT_DATE"></wm-datetime>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn7">
+                        <wm-label padding="0.60em 0.5em unset 14.75em" name="label2" caption="To:"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn8">
+                        <wm-datetime name="datetime2" maxdate="CURRENT_DATE"></wm-datetime>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn9">
+                        <wm-button class="btn-default" caption="Reset" type="button" margin="unset 0.5em" name="button1" on-click="button1Click($event, widget)"></wm-button>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn10">
+                        <wm-search name="search2" placeholder="Search by Job Name" searchon="typing" dataset="bind:Variables.App_TablesJobRunHistoryData.dataSet" datafield="All Fields" matchmode="startignorecase" required="true" displaylabel="jobName" searchkey="jobName"></wm-search>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-table editmode="inline" title="" dataset="bind:Variables.App_TablesJobRunHistoryData.dataSet" navigation="Basic" filtermode="multicolumn" enablecolumnselection="false" spacing="normal" name="table1" exportformat="EXCEL,CSV" exportdatasize="1000">
+                <wm-table-column binding="id" caption="Id" width="50px" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" searchable="false" show="true" disabled="true"></wm-table-column>
+                <wm-table-column binding="jobName" caption="Job Name" width="250px" edit-widget-type="text" type="string" generator="assigned" readonly="true" searchable="false" show="true" filterwidget="select" disabled="true"></wm-table-column>
+                <wm-table-column binding="scheduleRunTime" caption="Schedule Run Time" width="160px" edit-widget-type="datetime" type="datetime" generator="assigned" readonly="true" searchable="false" show="true" disabled="true" required="true"></wm-table-column>
+                <wm-table-column binding="scheduleDays" caption="Schedule Days" width="100px" edit-widget-type="text" type="string" generator="assigned" readonly="true" searchable="false" show="true" disabled="true" required="true"></wm-table-column>
+                <wm-table-column binding="actualRunTime" caption="Actual Run Time" width="160px" edit-widget-type="datetime" type="datetime" generator="assigned" readonly="true" searchable="false" show="true" disabled="true" required="true"></wm-table-column>
+                <wm-table-column binding="status" caption="Status" width="110px" col-ng-class="{'text-success':row.status=='PASS', 'text-danger':row.status=='FAIL', 'text-warning':row.status=='NO FILE', 'text-muted':row.status=='START ERROR', 'text-dark':row.status=='YET TO RUN', 'pass':row.status=='PASS', 'fail':row.status=='FAIL', 'nofile':row.status=='NO FILE', 'starterror':row.status=='START ERROR', 'yettorun':row.status=='YET TO RUN'}"
+                    edit-widget-type="text" type="string" generator="assigned" show="true" filterwidget="select" readonly="false" disabled="true" required="true"></wm-table-column>
+                <wm-table-column binding="remarks" caption="Remarks" width="200px" edit-widget-type="text" type="string" generator="assigned" searchable="false" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="batchMonitor" caption="Batch Monitor" width="100px" edit-widget-type="text" type="string" generator="assigned" searchable="false" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                <wm-table-row-action display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow($event)" disabled="false" widget-type="button"></wm-table-row-action>
+            </wm-table>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

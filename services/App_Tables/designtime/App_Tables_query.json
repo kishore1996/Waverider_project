@@ -1,0 +1,329 @@
+{
+  "Failcount" : {
+    "name" : "Failcount",
+    "description" : "number of fail count",
+    "version" : "V2",
+    "queryString" : "select count(*) from JobRunHistory where Status = 'Fail' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select count(*) from JobRunHistory where Status = 'Fail' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.FailcountResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "Jobcount" : {
+    "name" : "Jobcount",
+    "description" : "number of job count",
+    "version" : "V2",
+    "queryString" : "select count(*) from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select count(*) from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.JobcountResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "Nofilecount" : {
+    "name" : "Nofilecount",
+    "description" : "number of no file jobs",
+    "version" : "V2",
+    "queryString" : "select count(*) from JobRunHistory where Status = 'No File' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select count(*) from JobRunHistory where Status = 'No File' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.NofilecountResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "Passcount" : {
+    "name" : "Passcount",
+    "description" : "Number of pass counts",
+    "version" : "V2",
+    "queryString" : "select count(*) from JobRunHistory where Status = 'Pass' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select count(*) from JobRunHistory where Status = 'Pass' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.PasscountResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "current_datetime" : {
+    "name" : "current_datetime",
+    "description" : "displays current date and time",
+    "version" : "V2",
+    "queryString" : "select CONCAT(DATE_FORMAT(CURRENT_DATE(),'%W, %b %d %Y,'),' ',DATE_FORMAT(CONVERT_TZ(CURRENT_TIME(),'+00:00','+05:30'),'%T'),' ','IST') from dual",
+    "countQueryString" : "select count(*) from (select CONCAT(DATE_FORMAT(CURRENT_DATE(),'%W, %b %d %Y,'),' ',DATE_FORMAT(CONVERT_TZ(CURRENT_TIME(),'+00:00','+05:30'),'%T'),' ','IST') from dual) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.CurrentDatetimeResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "CONCAT(DATE_FORMAT(CURRENT_DATE(),'%W, %b %d %Y,'),' ',DATE_FORMAT(CONVERT_TZ(CURRENT_TIME(),'+00:00','+05:30'),'%T'),' ','IST')",
+        "fieldName" : "concat_dateFormat_currentDate_____w__b_d_y_______dateFormat_convertTz_currentTime_____00_00____05_30_____t_______ist__",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "currentdate" : {
+    "name" : "currentdate",
+    "description" : "displays current date",
+    "version" : "V2",
+    "queryString" : "select * from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select * from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.CurrentdateResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "Id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "JobName",
+        "fieldName" : "jobName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ScheduleRunTime",
+        "fieldName" : "scheduleRunTime",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.time.LocalDateTime",
+          "list" : false
+        }
+      }, {
+        "name" : "ScheduleDays",
+        "fieldName" : "scheduleDays",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ActualRunTime",
+        "fieldName" : "actualRunTime",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.time.LocalDateTime",
+          "list" : false
+        }
+      }, {
+        "name" : "Status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "Remarks",
+        "fieldName" : "remarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "BatchMonitor",
+        "fieldName" : "batchMonitor",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "starterrorcount" : {
+    "name" : "starterrorcount",
+    "description" : "number of start errors",
+    "version" : "V2",
+    "queryString" : "select count(*) from JobRunHistory where Status = 'Start error' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select count(*) from JobRunHistory where Status = 'Start error' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.StarterrorcountResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "yettoruncount" : {
+    "name" : "yettoruncount",
+    "description" : "number of yet to run count",
+    "version" : "V2",
+    "queryString" : "select count(*) from JobRunHistory where Status = 'Yet to run' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')",
+    "countQueryString" : "select count(*) from (select count(*) from JobRunHistory where Status = 'Yet to run' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.waverider_project.app_tables.models.query.YettoruncountResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

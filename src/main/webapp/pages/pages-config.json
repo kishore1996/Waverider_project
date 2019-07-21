@@ -11,12 +11,24 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Report",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "dashboard",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
   "name" : "footer",
   "type" : "FOOTER",
   "params" : [ ]
 }, {
   "name" : "header",
   "type" : "HEADER",
+  "params" : [ ]
+}, {
+  "name" : "job_list",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "leftnav",

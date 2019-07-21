@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="yettoruncount">
+        <![CDATA[
+        select count(*) from JobRunHistory where Status = 'Yet to run' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="yettoruncount__count">
+        <![CDATA[
+        select count(*) from (select count(*) from JobRunHistory where Status = 'Yet to run' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="Nofilecount">
+        <![CDATA[
+        select count(*) from JobRunHistory where Status = 'No File' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="Nofilecount__count">
+        <![CDATA[
+        select count(*) from (select count(*) from JobRunHistory where Status = 'No File' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="starterrorcount">
+        <![CDATA[
+        select count(*) from JobRunHistory where Status = 'Start error' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="starterrorcount__count">
+        <![CDATA[
+        select count(*) from (select count(*) from JobRunHistory where Status = 'Start error' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="Failcount">
+        <![CDATA[
+        select count(*) from JobRunHistory where Status = 'Fail' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="Failcount__count">
+        <![CDATA[
+        select count(*) from (select count(*) from JobRunHistory where Status = 'Fail' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="currentdate">
+        <![CDATA[
+        select * from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="currentdate__count">
+        <![CDATA[
+        select count(*) from (select * from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="Passcount">
+        <![CDATA[
+        select count(*) from JobRunHistory where Status = 'Pass' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="Passcount__count">
+        <![CDATA[
+        select count(*) from (select count(*) from JobRunHistory where Status = 'Pass' and DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="Jobcount">
+        <![CDATA[
+        select count(*) from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')
+        ]]>
+    </sql-query>
+
+    <sql-query name="Jobcount__count">
+        <![CDATA[
+        select count(*) from (select count(*) from JobRunHistory where DATE_FORMAT(ScheduleRunTime,'%e%c%Y') = DATE_FORMAT(CURRENT_TIME(),'%e%c%Y')) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="current_datetime">
+        <![CDATA[
+        select CONCAT(DATE_FORMAT(CURRENT_DATE(),'%W, %b %d %Y,'),' ',DATE_FORMAT(CONVERT_TZ(CURRENT_TIME(),'+00:00','+05:30'),'%T'),' ','IST') from dual
+        ]]>
+    </sql-query>
+
+    <sql-query name="current_datetime__count">
+        <![CDATA[
+        select count(*) from (select CONCAT(DATE_FORMAT(CURRENT_DATE(),'%W, %b %d %Y,'),' ',DATE_FORMAT(CONVERT_TZ(CURRENT_TIME(),'+00:00','+05:30'),'%T'),' ','IST') from dual) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

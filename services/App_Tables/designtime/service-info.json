@@ -1,0 +1,6 @@
+{
+  "id" : "App_Tables",
+  "type" : "DataService",
+  "packageNames" : [ "com.waverider_project.app_tables" ],
+  "title" : "App_Tables"
+}
