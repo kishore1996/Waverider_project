@@ -79,7 +79,7 @@ public class JobRunHistory implements Serializable {
         this.actualRunTime = actualRunTime;
     }
 
-    @Column(name = "`Status`", nullable = false, length = 10)
+    @Column(name = "`Status`", nullable = true, length = 20)
     public String getStatus() {
         return this.status;
     }
